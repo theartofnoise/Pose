@@ -6,9 +6,13 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import Main from "./Main";
+import UserProjects from "./UserProjects";
+
 
 class Welcome extends Component {
   state = {
+        loggedIn:false,
         userEmail:"",
         userPassword:"",
   };
@@ -26,11 +30,28 @@ class Welcome extends Component {
     console.log(this.state);
   };
 
+  logIn = () => {
+      this.setState({
+          loggedIn:true
+      })
+  };
+  
+  logOut = () => {
+      this.setState({
+          loggedIn:false
+      })
+  };
+
   render() {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
+            {this.state.loggedIn?
+                <div>
+                    <UserProjects />
+                    <FormBtn onClick={this.logOut}>Log Out</FormBtn>
+                </div>:
+          <Col size="lg-6 md-12">
             <form>
                 <Input 
                     value={this.state.userEmail}
@@ -42,9 +63,9 @@ class Welcome extends Component {
                     onChange={this.handleInputChange}
                     type="password" 
                     placeholder="password" />
-                <FormBtn type="submit">Submit</FormBtn>
+                <FormBtn type="submit" onClick={this.logIn}>Submit</FormBtn>
             </form>
-          </Col>
+          </Col>}
         </Row>
       </Container>
     );
