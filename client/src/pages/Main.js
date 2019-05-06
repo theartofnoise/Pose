@@ -1,20 +1,13 @@
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
-import { SSL_OP_SINGLE_DH_USE } from "constants";
+import Nav from "../components/Nav";
+import MusicArea from "../components/MusicArea";
 
 class Main extends Component {
   state = {
-    books: [],
-    title: "",
-    author: "",
-    lyrics: "",
-    music: ""
+    projectsLink:"Projects"
   };
 
   componentDidMount() {
@@ -67,6 +60,8 @@ class Main extends Component {
 
   render() {
     return (
+        <div>
+        <Nav projectsLink={this.state.projectsLink} />
       <Container fluid>
         <h1>Main Page Stuff</h1>
         <Row>
@@ -81,11 +76,13 @@ class Main extends Component {
           </Col>
           <Col size="md-4 sm-12">
             <div style={this.border}>
-              <h2>Songs go here</h2>
+            <h2>Music goes here</h2>
+              <MusicArea />
             </div>
           </Col>
         </Row>
       </Container>
+      </div>
     );
   }
 }

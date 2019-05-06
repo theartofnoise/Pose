@@ -9,6 +9,9 @@ function Nav(props) {
       <a className="navbar-brand float-right" href="/main">
         {props.mainLink}
       </a>
+      <a className="navbar-brand float-right" href="/">
+        {props.projectsLink}
+      </a>
     </nav>
   );
 }
