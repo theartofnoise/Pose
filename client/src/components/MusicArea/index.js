@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import music from "../../music.json";
 import { Col, Row, Container } from "../Grid";
 import AudioBtn from "../AudioBtn";
+import music from "../../music.json";
 
 class MusicArea extends Component {
   state = {
@@ -17,10 +17,16 @@ class MusicArea extends Component {
       <Container fluid>
         <Row>
           <Col size="md-4 sm-12">
-            <AudioBtn
-              songTitle={this.state.music[0].title}
-              onClick={this.playSong}
-            />
+          {this.state.music
+            // randomizes music
+            // .sort((a, b) => {return 0.5 - Math.random();})
+            // displays all music
+            .map((music, index) => 
+                <AudioBtn key={index} 
+                onClick={this.playSong} 
+                src={music.location} 
+                songTitle={music.title} 
+                id={music.id} />)}
           </Col>
         </Row>
       </Container>
