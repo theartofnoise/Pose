@@ -8,6 +8,7 @@ import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import Main from "./Main";
 import UserProjects from "./UserProjects";
+import Nav from "../components/Nav"
 
 
 class Welcome extends Component {
@@ -15,6 +16,7 @@ class Welcome extends Component {
         loggedIn:false,
         userEmail:"",
         userPassword:"",
+        mainLink:"",
   };
 
   handleInputChange = event => {
@@ -32,18 +34,22 @@ class Welcome extends Component {
 
   logIn = () => {
       this.setState({
-          loggedIn:true
+          loggedIn:true,
+          mainLink: "MAIN",
       })
   };
   
   logOut = () => {
       this.setState({
-          loggedIn:false
+          loggedIn:false,
+          mainLink:"",
       })
   };
 
   render() {
     return (
+        <div>
+        <Nav mainLink={this.state.mainLink} />
       <Container fluid>
         <Row>
             {this.state.loggedIn?
@@ -68,6 +74,7 @@ class Welcome extends Component {
           </Col>}
         </Row>
       </Container>
+      </div>
     );
   }
 }

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import { SSL_OP_SINGLE_DH_USE } from "constants";
 
 class Main extends Component {
   state = {
@@ -13,7 +14,7 @@ class Main extends Component {
     title: "",
     author: "",
     lyrics: "",
-    music: "",
+    music: ""
   };
 
   componentDidMount() {
@@ -55,12 +56,33 @@ class Main extends Component {
     }
   };
 
+  save = project => {
+    alert("project saved");
+  };
+
+  border = {
+    border: "solid 1px black",
+    height: "500px"
+  };
+
   render() {
     return (
       <Container fluid>
+        <h1>Main Page Stuff</h1>
         <Row>
-          <Col size="md-6">
-           <h1>Main Page Stuff</h1>
+          <Col size="md-8 sm-12">
+            <div style={this.border}>
+              <h2>Lyrics go here</h2>
+              <form>
+                <TextArea onChange={this.handleInputChange} />
+                <FormBtn onClick={this.save}>Save</FormBtn>
+              </form>
+            </div>
+          </Col>
+          <Col size="md-4 sm-12">
+            <div style={this.border}>
+              <h2>Songs go here</h2>
+            </div>
           </Col>
         </Row>
       </Container>

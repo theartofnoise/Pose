@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        {/* <Nav /> */}
         <Switch>
           <Route exact path="/" component={Welcome} />
           <Route exact path="/main" component={Main} />
