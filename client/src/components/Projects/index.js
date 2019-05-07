@@ -1,16 +1,16 @@
 import React from "react";
-import "./style.css";
 
 // This file exports both the List and ListItem components
 
-export function List({ children }) {
+function Projects(props) {
   return (
-    <div className="list-overflow-container">
-      <ul className="list-group">{children}</ul>
-    </div>
+    <button onClick={props.onClick} className="btn btn-success" role="button" tabIndex="0">
+      {props.projName}<br/>
+      by: {props.author}<br/>
+      mood: {props.mood}
+
+    </button>
   );
 }
 
-export function ListItem({ children }) {
-  return <li className="list-group-item">{children}</li>;
-}
+export default Projects;

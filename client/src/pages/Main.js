@@ -7,7 +7,9 @@ import MusicArea from "../components/MusicArea";
 
 class Main extends Component {
   state = {
-    projectsLink:"Projects"
+    logo:"pose",
+    link1:"",
+    link2:"home",
   };
 
   componentDidMount() {
@@ -61,7 +63,10 @@ class Main extends Component {
   render() {
     return (
         <div>
-        <Nav projectsLink={this.state.projectsLink} />
+        <Nav logo={this.state.logo}
+          link1={this.state.link1}
+          link2={this.state.link2}
+           />
       <Container fluid>
         <h1>Main Page Stuff</h1>
         <Row>

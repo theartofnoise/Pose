@@ -1,17 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Nav(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-      <a className="navbar-brand" href="/">
-        pose
-      </a>
-      <a className="navbar-brand float-right" href="/main">
-        {props.mainLink}
-      </a>
-      <a className="navbar-brand float-right" href="/">
-        {props.projectsLink}
-      </a>
+      <Link className="navbar-brand" to="/">
+        {props.logo}
+      </Link>
+      <Link className="navbar-brand float-right" to="/main">
+        {props.link1}
+      </Link>
+      <Link className="navbar-brand float-right" to="/">
+        {props.link2}
+      </Link>
+      <Link className="navbar-brand float-right" to="/">
+        {props.link3}
+      </Link>
+      <Link className="navbar-brand float-right" to="/">
+        {props.link4}
+      </Link>
     </nav>
   );
 }
