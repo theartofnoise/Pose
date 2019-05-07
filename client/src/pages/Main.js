@@ -12,23 +12,23 @@ class Main extends Component {
     link2:"home",
   };
 
-  componentDidMount() {
-    this.loadBooks();
-  }
+  // componentDidMount() {
+  //   this.loadBooks();
+  // }
 
-  loadBooks = () => {
-    API.getBooks()
-      .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-      )
-      .catch(err => console.log(err));
-  };
+  // loadBooks = () => {
+  //   API.getBooks()
+  //     .then(res =>
+  //       this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+  //     )
+  //     .catch(err => console.log(err));
+  // };
 
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
-      .catch(err => console.log(err));
-  };
+  // deleteBook = id => {
+  //   API.deleteBook(id)
+  //     .then(res => this.loadBooks())
+  //     .catch(err => console.log(err));
+  // };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -37,19 +37,19 @@ class Main extends Component {
     });
   };
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.title && this.state.author) {
-      API.saveBook({
-        title: this.state.title,
-        author: this.state.author,
-        lyrics: this.state.lyrics,
-        music: this.state.music
-      })
-        .then(res => this.loadBooks())
-        .catch(err => console.log(err));
-    }
-  };
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   if (this.state.title && this.state.author) {
+  //     API.saveBook({
+  //       title: this.state.title,
+  //       author: this.state.author,
+  //       lyrics: this.state.lyrics,
+  //       music: this.state.music
+  //     })
+  //       .then(res => this.loadBooks())
+  //       .catch(err => console.log(err));
+  //   }
+  // };
 
   save = project => {
     alert("project saved");
