@@ -5,21 +5,32 @@ import NoMatch from "./pages/NoMatch";
 import Welcome from "./pages/Welcome";
 import Main from "./pages/Main";
 import UserProjects from "./pages/UserProjects";
-import Nav from "../src/components/"
 
 class App extends Component {
 
   state = {
     loggedIn:true,
+    logo: "pose",
+    link1: "",
+    link2: "",
   }
+
+  logToggle = () => {
+    alert("it worked");
+    this.setState({
+        loggedIn:!this.state.loggedIn,
+        link1: "main",
+        link2: "home",
+    })
+};
+
 
   render() {
   return (
     <div>
-    <Nav />
     <Router>
         <Switch>
-          <Route exact path="/" component={Welcome} />
+          <Route exact path="/" logToggle={this.logToggle} loggedIn={this.state.loggedIn} component={Welcome} />
           {this.state.loggedIn&&[
           <Route exact path="/main" component={Main} />,
           <Route exact path="/userProjects" component={UserProjects} />,

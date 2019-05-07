@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import Projects from "../components/Projects";
 
 
 class UserProjects extends Component {
@@ -31,8 +32,17 @@ class UserProjects extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="lg-6 md-12">
-            <h1>Find your UserProjects Here</h1>            
+          <Col size="sm-12">
+            <h1>Find your UserProjects Here</h1> 
+            <FormBtn>New Project</FormBtn>             
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-3">
+            <Projects 
+              projName="Project Name" 
+              author="React Remix" 
+              mood="Angry" />           
           </Col>
         </Row>
       </Container>

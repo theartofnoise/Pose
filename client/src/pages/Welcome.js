@@ -16,7 +16,9 @@ class Welcome extends Component {
         loggedIn:false,
         userEmail:"",
         userPassword:"",
-        mainLink:"",
+        logo:"pose",
+        link1:"",
+        link2:"",
   };
 
   handleInputChange = event => {
@@ -33,10 +35,13 @@ class Welcome extends Component {
   };
 
   logIn = () => {
-      this.setState({
-          loggedIn:true,
-          mainLink: "MAIN",
-      })
+    this.setState({
+      loggedIn:true,
+      link1:"main",
+      link2:"home",
+      
+    })
+    // props.logToggle;
   };
   
   logOut = () => {
@@ -49,7 +54,10 @@ class Welcome extends Component {
   render() {
     return (
         <div>
-        <Nav mainLink={this.state.mainLink} />
+        <Nav logo={this.state.logo}
+          link1={this.state.link1}
+          link2={this.state.link2}
+           />
       <Container fluid>
         <Row>
             {this.state.loggedIn?
@@ -69,7 +77,8 @@ class Welcome extends Component {
                     onChange={this.handleInputChange}
                     type="password" 
                     placeholder="password" />
-                <FormBtn type="submit" onClick={this.logIn}>Submit</FormBtn>
+                <FormBtn type="submit" onClick={this.logIn}>Log In</FormBtn>
+                <FormBtn type="submit" onClick={this.modalOpen}>Create New Account</FormBtn>
             </form>
           </Col>}
         </Row>
