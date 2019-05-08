@@ -104,7 +104,7 @@ class Welcome extends Component {
                     type="password"
                     placeholder="password"
                   />
-                  <FormBtn type="button" onClick={this.logIn}>
+                  <FormBtn type="submit" onClick={this.logIn}>
                     Log In
                   </FormBtn>
                   <FormBtn type="submit" onClick={this.saveUser}>Create New Account</FormBtn>

@@ -34,7 +34,9 @@ class UserProjects extends Component {
         <Row>
           <Col size="sm-12">
             <h1>Find your UserProjects Here</h1> 
-            <FormBtn>New Project</FormBtn>             
+            <Link to="/main">
+            <FormBtn>New Project</FormBtn> 
+            </Link>            
           </Col>
         </Row>
         <Row>
