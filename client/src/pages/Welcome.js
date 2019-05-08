@@ -8,17 +8,17 @@ import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import Main from "./Main";
 import UserProjects from "./UserProjects";
-import Nav from "../components/Nav";
+import Nav from "../components/Nav"
+
 
 class Welcome extends Component {
   state = {
-    //loggedIn: false,
-    loggedIn: localStorage.getItem("userEmail") === null ? false: true,
-    userEmail: "",
-    userPassword: "",
-    logo: "pose",
-    link1: "",
-    link2: ""
+        loggedIn:false,
+        userEmail:"",
+        userPassword:"",
+        logo:"pose",
+        link1:"",
+        link2:"",
   };
 
   handleInputChange = event => {
@@ -28,77 +28,51 @@ class Welcome extends Component {
     });
   };
 
+  handleFormSubmit = event => {
+    event.preventDefault();
+    alert("Submitted");
+    console.log(this.state);
+  };
+
   logIn = () => {
-     API.loginUser({
-        userEmail: this.state.userEmail
-      }).then(res => {
-        if(res.data){
-          console.log("logged in")
-          this.setState({
-            loggedIn: true,
-            link1: "main",
-            userEmail: "",
-            userPassword: ""
-          })
-          localStorage.setItem("userEmail", this.state.userEmail)
-          localStorage.setItem("userPassword", this.state.userPassword)
-        } else {
-          alert("wrong user name or pasword");
-        }
-      })
-  };
-
-
-  saveUser = () => {
-    API.saveUser({
-      userEmail: this.state.userEmail,
-      userPassword: this.state.userPassword,
-    })
-      .then(res => {
-        this.setState({
-        userEmail: "",
-        userPassword: ""})
-        this.findUser(res)
-      })
-      .catch(err => console.log(err));
-  };
-
-  logOut = () => {
-    localStorage.removeItem("userEmail")
-    localStorage.removeItem("userPassword")
     this.setState({
-      loggedIn: false,
-      mainLink: ""
-    });
+      loggedIn:true,
+      link1:"main",
+      link2:"home",
+      
+    })
+    // props.logToggle;
+  };
+  
+  logOut = () => {
+      this.setState({
+          loggedIn:false,
+          mainLink:"",
+      })
   };
 
   render() {
     return (
-      <div>
-        <Nav
-          logo={this.state.logo}
+        <div>
+        <Nav logo={this.state.logo}
           link1={this.state.link1}
           link2={this.state.link2}
-        />
-        <Container fluid>
-          <Row>
-            {this.state.loggedIn ? (
-              <div>
-                <UserProjects />
-                <FormBtn onClick={this.logOut}>Log Out</FormBtn>
-              </div>
-            ) : (
-              <Col size="lg-6 md-12">
-                <form>
-                  <Input
-                    name="userEmail"
+           />
+      <Container fluid>
+        <Row>
+            {this.state.loggedIn?
+                <div>
+                    <UserProjects />
+                    <FormBtn onClick={this.logOut}>Log Out</FormBtn>
+                </div>:
+          <Col size="lg-6 md-12">
+            <form>
+                <Input 
                     value={this.state.userEmail}
                     onChange={this.handleInputChange}
-                    type="email"
-                    placeholder="email"
-                  />
-                  <Input
-                    name="userPassword"
+                    type="email" 
+                    placeholder="email" />
+                <Input 
                     value={this.state.userPassword}
                     onChange={this.handleInputChange}
                     type="password"
@@ -113,6 +87,7 @@ class Welcome extends Component {
             )}
           </Row>
         </Container>
+
       </div>
     );
   }
