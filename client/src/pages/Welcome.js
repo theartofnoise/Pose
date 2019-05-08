@@ -75,14 +75,19 @@ class Welcome extends Component {
                 <Input 
                     value={this.state.userPassword}
                     onChange={this.handleInputChange}
-                    type="password" 
-                    placeholder="password" />
-                <FormBtn type="submit" onClick={this.logIn}>Log In</FormBtn>
-                <FormBtn type="submit" onClick={this.modalOpen}>Create New Account</FormBtn>
-            </form>
-          </Col>}
-        </Row>
-      </Container>
+                    type="password"
+                    placeholder="password"
+                  />
+                  <FormBtn type="submit" onClick={this.logIn}>
+                    Log In
+                  </FormBtn>
+                  <FormBtn type="submit" onClick={this.saveUser}>Create New Account</FormBtn>
+                </form>
+              </Col>
+            )}
+          </Row>
+        </Container>
+
       </div>
     );
   }
