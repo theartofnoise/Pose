@@ -23,7 +23,7 @@ class App extends Component {
         link2: "home",
     })
 };
-
+//  renders
 
   render() {
   return (
